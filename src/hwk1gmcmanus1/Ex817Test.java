@@ -12,8 +12,8 @@ package hwk1gmcmanus1;
 public class Ex817Test {
    public static void main (String[] args) {
       
-      String hugeInt1 = "127";
-      String hugeInt2 = "1234";
+      String hugeInt1 = "567";
+      String hugeInt2 = "123456";
       
       if (hugeInt1.length() <= 40 && hugeInt2.length() <= 40) {
          
@@ -46,6 +46,10 @@ public class Ex817Test {
          
          int[] sum = new int[41];
          sum = HugeInteger.add (result1, result2);
+         
+         //print huge integer
+         
+         System.out.print ("Sum of two huge integers = ");
          for (int i = 0; i < sum.length; i++) {
             System.out.printf ("%d", sum[i]);
          }

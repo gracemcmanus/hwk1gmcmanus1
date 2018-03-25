@@ -178,31 +178,43 @@ public class HugeInteger {
    }
    
    public static int[] add (int[] intA, int[] intB) {
-      int i = intA.length;
-      int j = intB.length;
+      int i = intA.length - 1;
+      int j = intB.length - 1;
       int k = 40;     // max length
       int carry = 0;
       int[] sum = new int[41];
       
-      while (i > 0 || j > 0) {
+      while (i >= 0 && j >= 0) {
+         
          sum[k] = intA[i] + intB[j] + carry;
          carry = 0;
          if (sum[k] > 9) {
             carry = 1;
             sum[k] -=10;
          }
-         k++;
+         k--;
          i--;
          j--;
       }
                  
-      if (i > 0) {
+      if (i >= 0) {
          sum[k] = intA[i] + carry;
          i--;
-         k++;
-         while (i > 0) {
+         k--;
+         while (i >= 0) {
             sum[k] = intA[i];
             i--;
+            k--;
+         }
+      }
+      else if (j >= 0) {
+         sum[k] = intB[j] + carry;
+         j--;
+         k--;
+         while (j >= 0) {
+            sum[k] = intB[j];
+            j--;
+            k--;
          }
       }
       return sum;
