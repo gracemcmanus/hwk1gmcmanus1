@@ -241,18 +241,30 @@ public class HugeInteger {
        
             if (intA [i] >= intB[j]) {
                diff[k] = intA[i] - intB[j];
-               System.out.printf ("k = %d  diff][k] = %d%n", k, diff[k]);
             }
             else {
                intA[i-1] --;
                intA [i] += 10;
                diff[k] = intA[i] - intB[j];
-               System.out.printf ("k = %d  diff][k] = %d%n", k, diff[k]);
             }
             k--;
             i--;
             j--;
+         }
          
+         if (i >= 0) {
+            while (i >= 0) {
+               diff[k] = intA[i];
+               i--;
+               k--;
+            }
+         }
+         else if (j >= 0) {
+            while (j >= 0) {
+               diff[k] = intB[j];
+               j--;
+               k--;
+            }
          }
       }
       return diff;

@@ -12,8 +12,8 @@ package hwk1gmcmanus1;
 public class Ex817Test {
    public static void main (String[] args) {
       
-      String hugeInt1 = "1234328";
-      String hugeInt2 = "1234567";
+      String hugeInt1 = "1234326";
+      String hugeInt2 = "1567";
       
       if (hugeInt1.length() <= 40 && hugeInt2.length() <= 40) {
          
@@ -57,6 +57,12 @@ public class Ex817Test {
          
          int[] difference = new int[41];
          difference = HugeInteger.subtract(hInt1, hInt2);
+         
+         System.out.print ("Difference of two huge integers = ");
+         for (int i = 0; i < sum.length; i++) {
+            System.out.printf ("%d", difference[i]);
+         }
+         System.out.println();
       }
       else {
          System.out.println ("Invalid number: must be <= 40 characters");
