@@ -67,7 +67,10 @@ public class HugeInteger {
       else {
          int i = 0;
          while (i < intA.length) {
-            if (intA[i] >= intB[i]) {
+            if (intA[i] > intB[i]) {
+               return true;
+            }
+            else if (intA[i] == intB[i]) {
                i++;
             }
             else if (intA[i] < intB[i]) {
@@ -114,7 +117,10 @@ public class HugeInteger {
       else {
          int i = 0;
          while (i < intA.length) {
-            if (intA[i] <= intB[i]) {
+            if (intA[i] < intB[i]) {
+               return true;
+            }
+            else if (intA[i] == intB[i]) {
                i++;
             }
             else if (intA[i] > intB[i]) {
@@ -178,6 +184,7 @@ public class HugeInteger {
    }
    
    public static int[] add (int[] intA, int[] intB) {
+      
       int i = intA.length - 1;
       int j = intB.length - 1;
       int k = 40;     // max length
@@ -218,5 +225,36 @@ public class HugeInteger {
          }
       }
       return sum;
+   }
+   
+   public static int[] subtract (int[] intA ,int[] intB) {
+      
+      int i = intA.length - 1;
+      int j = intB.length - 1;
+      int k = 40;     // max length
+      int borrow = 0;
+      int[] diff = new int[41];
+      
+      if (HugeInteger.isGreaterThanOrEqualTo(intA, intB) == true) {
+      
+         while (i >= 0 && j >= 0) {
+       
+            if (intA [i] >= intB[j]) {
+               diff[k] = intA[i] - intB[j];
+               System.out.printf ("k = %d  diff][k] = %d%n", k, diff[k]);
+            }
+            else {
+               intA[i-1] --;
+               intA [i] += 10;
+               diff[k] = intA[i] - intB[j];
+               System.out.printf ("k = %d  diff][k] = %d%n", k, diff[k]);
+            }
+            k--;
+            i--;
+            j--;
+         
+         }
+      }
+      return diff;
    }
 }
