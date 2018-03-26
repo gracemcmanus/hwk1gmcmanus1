@@ -23,6 +23,9 @@ public class Ex817Test {
          HugeInteger num2 = new HugeInteger (hugeInt2);
          int[] hInt2 = num2.parse();
          
+         String hugeInt3 = HugeInteger.toString (hInt1);
+         System.out.printf ("Huge integer string = %s%n", hugeInt3);
+         
          boolean compare = HugeInteger.isGreaterThan(hInt1, hInt2);
          System.out.printf ("Int1 greater: %b%n", compare);
          
@@ -47,11 +50,13 @@ public class Ex817Test {
          int[] sum = new int[41];
          sum = HugeInteger.add (hInt1, hInt2);
          
-         //print huge integer
-         
          System.out.print ("Sum of two huge integers = ");
-         for (int i = 0; i < sum.length; i++) {
-            System.out.printf ("%d", sum[i]);
+         int i = 0;
+         while (sum[i] == 0) {      // ignore leading 0's
+            i++;
+         }
+         for (int j = i; j < sum.length; j++) {
+            System.out.printf ("%d", sum[j]);
          }
          System.out.println();
          
@@ -59,8 +64,12 @@ public class Ex817Test {
          difference = HugeInteger.subtract(hInt1, hInt2);
          
          System.out.print ("Difference of two huge integers = ");
-         for (int i = 0; i < sum.length; i++) {
-            System.out.printf ("%d", difference[i]);
+         i = 0;
+         while (difference[i] == 0) {    // ignore leading 0's
+            i++;
+         }
+         for (int j = i; j < sum.length; j++) {
+            System.out.printf ("%d", difference[j]);
          }
          System.out.println();
       }

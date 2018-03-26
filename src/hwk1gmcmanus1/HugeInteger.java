@@ -183,6 +183,16 @@ public class HugeInteger {
       return true;
    }
    
+   public static String toString (int[] intA) {
+      
+      String hugeInteger = "";
+      
+      for (int i = 0; i < intA.length; i++) {
+         hugeInteger = hugeInteger + Integer.toString(intA[i]);
+      } 
+      return hugeInteger;
+   }
+   
    public static int[] add (int[] intA, int[] intB) {
       
       int i = intA.length - 1;
@@ -191,7 +201,7 @@ public class HugeInteger {
       int carry = 0;
       int[] sum = new int[41];
       
-      while (i >= 0 && j >= 0) {
+      while (i >= 0 && j >= 0) {  
          
          sum[k] = intA[i] + intB[j] + carry;
          carry = 0;
@@ -205,7 +215,7 @@ public class HugeInteger {
       }
                  
       if (i >= 0) {
-         sum[k] = intA[i] + carry;
+         sum[k] = intA[i] + carry;  // 1st num has more digits
          i--;
          k--;
          while (i >= 0) {
@@ -215,7 +225,7 @@ public class HugeInteger {
          }
       }
       else if (j >= 0) {
-         sum[k] = intB[j] + carry;
+         sum[k] = intB[j] + carry;  // 2nd num has more digits
          j--;
          k--;
          while (j >= 0) {
@@ -252,17 +262,10 @@ public class HugeInteger {
             j--;
          }
          
-         if (i >= 0) {
+         if (i >= 0) {            
             while (i >= 0) {
                diff[k] = intA[i];
                i--;
-               k--;
-            }
-         }
-         else if (j >= 0) {
-            while (j >= 0) {
-               diff[k] = intB[j];
-               j--;
                k--;
             }
          }
