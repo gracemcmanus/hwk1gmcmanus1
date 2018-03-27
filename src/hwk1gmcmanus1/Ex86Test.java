@@ -27,6 +27,9 @@ public class Ex86Test {
       
       displayBalance (saver1);
       displayBalance (saver2);
+      
+      System.out.printf ("%nSaver1 balance = %s%n", saver1.toString());
+      System.out.printf ("%nSaver2 balance = %s%n", saver2.toString());
    }
    private static void displayBalance (SavingsAccount saver) {
       System.out.printf ("%n%s%n", "Balances for 12 months");

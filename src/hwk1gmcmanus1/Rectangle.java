@@ -60,4 +60,9 @@ public class Rectangle {
    public float calcPerimeter () {
       return (2 * length) + (2 * width);
    }
+   
+   public String toString() {
+      return String.format ("%s %.2f  %s %.2f", "Length = ", getLength (),
+              "Width = ", getWidth ());
+   }
 }

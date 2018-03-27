@@ -35,4 +35,12 @@ public class SavingsAccount {
    public static void modifyInterestRate (double intRate) {
       annualInterestRate = intRate;
    }
+   
+   public double getBalance() {
+      return savingsBalance;
+   }
+   
+   public String toString () {
+      return String.format ("%s %.2f", "Balance = ", getBalance ());
+   }
 }

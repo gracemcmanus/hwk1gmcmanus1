@@ -28,16 +28,21 @@ public class Ex84Test {
       
       displayRectangle (rec3);
       
+      // test toString
+      
+      System.out.printf ("Rectangle 1: %s%n", rec1.toString());
+      System.out.printf ("Rectangle 2: %s%n", rec2.toString());
+      System.out.printf ("Rectangle 3: %s%n", rec3.toString());
+      
       // attempt to initialize object with an invalid value
       
       try {
          Rectangle rec4 = new Rectangle (25,20);
       }
       catch (IllegalArgumentException e){
-         System.out.printf ("Exception while initializing Rectangle object: %s%n",
+         System.out.printf ("%nException while initializing Rectangle object: %s%n",
           e.getMessage());
       }
-      
    }
    
    private static void displayRectangle (Rectangle rec) {

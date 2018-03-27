@@ -12,7 +12,7 @@ package hwk1gmcmanus1;
 public class Ex817Test {
    public static void main (String[] args) {
       
-      String hugeInt1 = "1234326";
+      String hugeInt1 = "1567443";
       String hugeInt2 = "1567";
       
       if (hugeInt1.length() <= 40 && hugeInt2.length() <= 40) {
@@ -65,12 +65,18 @@ public class Ex817Test {
          
          System.out.print ("Difference of two huge integers = ");
          i = 0;
-         while (difference[i] == 0) {    // ignore leading 0's
-            i++;
+         while (i < difference.length && difference[i] == 0) {    
+            i++;                          // ignore leading 0's
          }
-         for (int j = i; j < sum.length; j++) {
-            System.out.printf ("%d", difference[j]);
+         if (i < sum.length) {            //  unless difference = 0
+            for (int j = i; j < difference.length; j++) {
+               System.out.printf ("%d", difference[j]);
+            }
          }
+         else {
+            System.out.printf ("%d", difference[i-1]);
+         }
+         
          System.out.println();
       }
       else {

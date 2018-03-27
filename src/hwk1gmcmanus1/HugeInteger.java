@@ -245,7 +245,11 @@ public class HugeInteger {
       int borrow = 0;
       int[] diff = new int[41];
       
-      if (HugeInteger.isGreaterThanOrEqualTo(intA, intB) == true) {
+      if (HugeInteger.isEqualTo (intA, intB) == true) {
+         diff [k] = 0;
+         return diff;
+      }
+      else if (HugeInteger.isGreaterThan (intA, intB) == true) {
       
          while (i >= 0 && j >= 0) {
        
